@@ -1,7 +1,7 @@
 % RUN_resonances.m
 %
 % Computes the resonant frequencies for an array
-% of N resonators in two dimensions.
+% of N circular resonators in two dimensions.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
