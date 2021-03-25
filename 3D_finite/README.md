@@ -4,11 +4,11 @@
 
 Please cite the following reference when using this source:
 
-[1] Ammari H, Davies B & Hiltunen E O. 2021 *Functional analytic methods for discrete approximations of subwavelength resonator systems*. To appear.
+[1] Ammari H, Davies B & Hiltunen E O. 2021 *Functional analytic methods for discrete approximations of subwavelength resonator systems*. In preparation.
 
 ## Multipole expansion method
 
-In the case of spherical resonators, the solutions to scattering problems can be expanded in terms of spherical harmonics. This approach is explained in detail in the appendix of [2].
+In the case of spherical resonators, the solutions to scattering problems can be expanded in terms of spherical harmonics. This approach is explained in detail in the appendix of [2]. The function `multipoleres.m` uses the multipole discretization method along with Muller's method to fing the resonant frequencies of the full differential system.
 
 ## Capacitance matrix
 
@@ -24,10 +24,11 @@ then we have that
 
 <img src="https://latex.codecogs.com/svg.latex?\large&space;C_{ij}%20=%20\begin{cases}\epsilon\mathrm{Cap}_B%20+%20O(\epsilon^3),%20&\quad%20i=j,\\-\epsilon^2%20\frac{(\mathrm{Cap}_B)^2}{4\pi%20|z_i-z_j|}%20+%20O(\epsilon^3),%20&\quad%20i\neq%20j.\end{cases}">
 
+The function `capacitancedilute.m` outputs the dilute approximation of the capacitance coefficients, based on the above formula. We can then compute the eigenvalues of the generalized capacitance matrix and use the fact that <img src="https://latex.codecogs.com/svg.latex?\omega_j=\sqrt{\lambda_j}+O(\delta)"> to find the resonant frequencies. This will return an error if the eigenvalues are negative (which is a consequence of the resonators being too close together).
+
 # Notes on the current version
 
 The current version of the multipole method assumes that the resonators are collinear, in the sense that their centres all lie on a straight line.
-
 
 # References
 
