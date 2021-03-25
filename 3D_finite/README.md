@@ -18,7 +18,7 @@ A significant improvement in computational efficiency can be achieved by using t
 
 In the case that the resonators are small compared to the distance between them, we have an explicit formula for the capacitance matrix at leading order. In particular, if the resonators are given by
 
-<img src="https://latex.codecogs.com/svg.latex?\large&space;D=\bigcup_{j=1}^N \left(\epsilon B + z_j\right),">
+<img src="https://latex.codecogs.com/svg.latex?\large&space;D=\bigcup_{j=1}^N%20\left(\epsilon%20B%20+%20z_j\right),">
 
 then we have that
 
