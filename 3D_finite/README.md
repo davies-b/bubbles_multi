@@ -34,7 +34,9 @@ The current version of the multipole method assumes that the resonators are coll
 
 There are some examples supplied with the code as demos.
 
-`DEMO1.m` studies a graded array of 10 resonators. These have the material parameters of air and water and are designed to have similar dimensions to the human cochlea. The size gradient is chosen so that the array mimics the frequency separation of the cochlea. This example is based on the work of [3].
+`DEMO1.m` studies a graded array of 10 spherical resonators. These have the material parameters of air and water and are designed to have similar dimensions to the human cochlea. The size gradient is chosen so that the array mimics the frequency separation of the cochlea. This example is based on the work of [3]. In this case, delta is relatively large so the capacitance matrix approximation is not so accurate.
+
+`DEMO2.m` studies an array of 10 identical spherical resonators. Here, delta=1/5000 so the capacitance matrix gives a much better approximation.
 
 # References
 

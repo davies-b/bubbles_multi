@@ -1,35 +1,26 @@
 clear, close all
 
-L = 35e-3;              % length of cochlea
 N = 10;                 % number of resonators
-L_end = L - 0.005;
-
-s = 1.05;
-Rad = L_end*(1-s)/(1-s^N)/3;
-for i = 1:N
-    R(i) = Rad*s^(i-1);
-end
 
 %%% Material parameters
-rho0 = 1e3;             % density of water
-kappa0 = 2e9;           % bulk modulus of water
-v = sqrt(kappa0/rho0);  % speed of sound in water
+high = 5000;
 
-rho_b = 1.2;            % density of resonators  
-kappa_b = 1e5;          % bulk modulus of resonators
+rho0 = high;             % density of background
+kappa0 = high;           % bulk modulus of background
+v = sqrt(kappa0/rho0);  % speed of sound in background
+
+rho_b = 1;            % density of resonators  
+kappa_b = 1;          % bulk modulus of resonators
 v_b = sqrt(kappa_b/rho_b);  % speed of sound in air
-
 
 % High contrast parameters \delta
 delta=rho_b/rho0;
 
+% Define size of resonators
+R = ones(1,N);
+
 % Define positions of resonators
-cx = R(1)*ones(1,N);
-if N > 1
-    for i = 2:N
-        cx(i) = cx(i-1) + 2*R(i-1) + R(i);
-    end
-end
+cx = 3*linspace(1,N,N);
 
 %%% Plot the geometry
 cy = zeros(1,N); cz = zeros(1,N);
@@ -44,9 +35,9 @@ hold off
 %% Compute the resonances using the multipole expansion method and Muller's method
 % Maximum order for multipole expansion (n = -N_multi, ..., -2, -1, 0, +1,
 % +2, ..., +N_multi)
-N_multi = 3;
+N_multi = 2;
 
-range = [1,30000];
+range = [0.01,0.04];
 multires = multipoleres(cx,R,N_multi,rho0,rho_b,kappa0,kappa_b,delta,range);
 
 %% Compute the resonances using the capacitance matrix, which is approximated using the multipole expansion method

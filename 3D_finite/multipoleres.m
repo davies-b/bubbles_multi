@@ -1,4 +1,4 @@
-function resonances = multipoleres(cx,R,N_multi,rho0,rho_b,kappa0,kappa_b,delta)
+function resonances = multipoleres(cx,R,N_multi,rho0,rho_b,kappa0,kappa_b,delta,range)
 
 N = length(cx);
 cy = zeros(1,N);
@@ -11,7 +11,7 @@ cz = zeros(1,N);
 
 f= @(z) min(eig(MakeA(R,z,rho0,rho_b,kappa0,kappa_b,delta,N_multi,cx,cy)));
 
-x = linspace(1,30000,300);
+x = linspace(range(1),range(2),500);
 init = [];
 y = zeros(1, length(x));
 for i = 1:length(x)
