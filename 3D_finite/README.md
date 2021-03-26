@@ -30,6 +30,14 @@ The function `capacitancedilute.m` outputs the dilute approximation of the capac
 
 The current version of the multipole method assumes that the resonators are collinear, in the sense that their centres all lie on a straight line.
 
+# Demos
+
+There are some examples supplied with the code as demos.
+
+`DEMO1.m` studies a graded array of 10 resonators. These have the material parameters of air and water and are designed to have similar dimensions to the human cochlea. The size gradient is chosen so that the array mimics the frequency separation of the cochlea. This example is based on the work of [3].
+
 # References
 
 [2] Ammari H, Davies B, Hiltunen E O and Yu S. 2020 *Topologically protected edge modes in one-dimensional chains of subwavelength resonators.* Journal de Mathématiques Pures et Appliquées 144: 17-49. (https://doi.org/10.1016/j.matpur.2020.08.007)
+
+[3] Ammari H & Davies B. 2020 *Mimicking the active cochlea with a fluid-coupled array of subwavelength Hopf resonators.* Proceedings of the Royal Society A 476: 20190870. (https://doi.org/10.1098/rspa.2019.0870)

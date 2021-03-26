@@ -4,12 +4,11 @@ L = 35e-3;              % length of cochlea
 N = 10;                 % number of resonators
 L_end = L - 0.005;
 
-% s = 1.05;
-% Rad = L_end*(1-s)/(1-s^N)/3;
-% for i = 1:N
-%     R(i) = Rad*s^(i-1);
-% end
-R = 1e-3*ones(N,1);
+s = 1.05;
+Rad = L_end*(1-s)/(1-s^N)/3;
+for i = 1:N
+    R(i) = Rad*s^(i-1);
+end
 
 %%% Material parameters
 rho0 = 1e3;             % density of water
@@ -69,4 +68,5 @@ scatter(real(multires),1.1*ones(1,N),'xb')
 hold on
 scatter(capres,ones(1,N),'ob')
 scatter(diluteres,0.9*ones(1,N),'sb')
-
+ylim([0.85, 1.2]); set(gca,'ytick',[]);
+legend('full multipole method','capacitance matrix','dilute capacitance matrix')
