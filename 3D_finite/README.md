@@ -12,7 +12,7 @@ In the case of spherical resonators, the solutions to scattering problems can be
 
 ## Capacitance matrix
 
-A significant improvement in computational efficiency can be achieved by using the eigenvalues of the generalized capacitance matrix to approximate the resonant frequencies. The function `capacitance.m` use the multipole expansion method (with just one multipole) to approximate the capacitance coefficients associated to the resonators' geometry. We can then compute the eigenvalues of the generalized capacitance matrix and use the fact that <img src="https://latex.codecogs.com/svg.latex?\omega_j=\sqrt{\lambda_j}+O(\delta)"> to find the resonant frequencies.
+A significant improvement in computational efficiency can be achieved by using the eigenvalues of the generalized capacitance matrix to approximate the resonant frequencies. The function `capacitance.m` use the multipole expansion method (with just one multipole) to approximate the capacitance coefficients associated to the resonators' geometry. We can then compute the eigenvalues of the generalized capacitance matrix and use the fact that <img src="https://latex.codecogs.com/svg.latex?\small&space;\omega_j=\sqrt{\lambda_j}+O(\delta)"> to find the resonant frequencies.
 
 ## Dilute approximation of the capacitance matrix
 
@@ -24,7 +24,7 @@ then we have that
 
 <img src="https://latex.codecogs.com/svg.latex?\large&space;C_{ij}%20=%20\begin{cases}\epsilon\mathrm{Cap}_B%20+%20O(\epsilon^3),%20&\quad%20i=j,\\-\epsilon^2%20\frac{(\mathrm{Cap}_B)^2}{4\pi%20|z_i-z_j|}%20+%20O(\epsilon^3),%20&\quad%20i\neq%20j.\end{cases}">
 
-The function `capacitancedilute.m` outputs the dilute approximation of the capacitance coefficients, based on the above formula. We can then compute the eigenvalues of the generalized capacitance matrix and use the fact that <img src="https://latex.codecogs.com/svg.latex?\omega_j=\sqrt{\lambda_j}+O(\delta)"> to find the resonant frequencies. This will return an error if the eigenvalues are negative (which is a consequence of the resonators being too close together).
+The function `capacitancedilute.m` outputs the dilute approximation of the capacitance coefficients, based on the above formula. We can then compute the eigenvalues of the generalized capacitance matrix and use the fact that <img src="https://latex.codecogs.com/svg.latex?\small&space;\omega_j=\sqrt{\lambda_j}+O(\delta)"> to find the resonant frequencies. This will return an error if the eigenvalues are negative (which is a consequence of the resonators being too close together).
 
 # Notes on the current version
 
@@ -37,6 +37,8 @@ There are some examples supplied with the code as demos.
 `DEMO1.m` studies a graded array of 10 spherical resonators. These have the material parameters of air and water and are designed to have similar dimensions to the human cochlea. The size gradient is chosen so that the array mimics the frequency separation of the cochlea. This example is based on the work of [3]. In this case, delta is relatively large so the capacitance matrix approximation is not so accurate.
 
 `DEMO2.m` studies an array of 10 identical spherical resonators. Here, delta=1/5000 so the capacitance matrix gives a much better approximation.
+
+`DEMO3.m` studies an array of 10 identical spherical resonators and uses the generalized capacitance matrix to compute both the real and imaginary parts of the resonant frequencies, based on the formula from [1]. These values are compared to those computed using the multipole expansion method.
 
 # References
 
